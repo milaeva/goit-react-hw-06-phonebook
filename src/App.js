@@ -12,24 +12,6 @@ import ContactsList from "./components/Contacts/ContactsList"
 import "./App.css"
 
 function App({ contacts, inputValue, handleSubmit, deleteContact, inputChange }) {
-  // useEffect(() => {
-  //   const localState = JSON.parse(localStorage.getItem("Contacts"));
-  //   if (localState) {
-  //     setContacts(localState);
-  //   } else {
-  //     return;
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("Contacts", JSON.stringify(contacts));
-  // }, [contacts]);
-
-  // const filterleInputChange = (e) => {
-  //   const { value } = e.currentTarget;
-  //   setFilter(value);
-  // };
-
   const submit = (data) => {
     if (contacts.find((contact) => contact.name.toLowerCase() === data.name.toLowerCase())) {
       defaultModules.set(PNotifyMobile, {})
@@ -40,14 +22,6 @@ function App({ contacts, inputValue, handleSubmit, deleteContact, inputChange })
       handleSubmit(data)
     }
   }
-
-  // const deleteContact = (id) => {
-  //   const visiblecontact = contacts.filter(
-  //     (contacts) => !contacts.id.includes(id)
-  //   );
-  //   setContacts(visiblecontact);
-  // };
-
   const visiblecontact = () => {
     const normalizedFilter = inputValue.toLowerCase()
     if (contacts.length === 0) {
